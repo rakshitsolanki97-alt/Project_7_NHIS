@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disaster Tweet Classifier</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .container {
+            width: 60%;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        textarea {
+            width: 90%;
+            height: 120px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 25px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Disaster Tweet Classification</h1>
+
+    <p>
+        Enter a tweet below to predict whether it is related
+        to a real disaster.
+    </p>
+
+    <form method="POST">
+
+        <textarea
+            name="tweet"
+            placeholder="Enter tweet text here..."
+            required>{{ tweet }}</textarea>
+
+        <br>
+
+        <button type="submit">
+            Predict
+        </button>
+
+    </form>
+
+    {% if prediction %}
+
+    <div class="result">
+
+        Prediction: {{ prediction }}
+
+        <br><br>
+
+        Confidence: {{ confidence }}%
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
